@@ -76,6 +76,11 @@ ifeq ($(STATIC),1)
 LDFLAGS+=-static
 endif
 
+# enable profilling flags
+ifeq ($(PROFILE),1)
+CFLAGS += -g -ggdb -fno-omit-frame-pointer
+endif
+
 all: icapp 
 
 vp4c_sse.o: vp4c.c
